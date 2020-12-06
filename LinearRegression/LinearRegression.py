@@ -38,7 +38,7 @@ def returnZ(X_T,W,B):
     return Z
 
 #定义损失函数，返回损失函数值
-def floss(Z,Y):                            #z是预测值，tag是标签值
+def floss(Z,Y):                            
     loss=1/2 * (Z-Y)*(Z-Y)
     return loss
 
@@ -148,17 +148,17 @@ for i in range(0,999):
     W[0] = W[0] - eta*pd1       #反向传播
     W[1] = W[1] - eta*pd2
     B = B - eta*pd3
-
+B = float(B)
 #打印回归模型参数值
-'print(W,B)'
+print('z={0}*x + {1}*y + {2}'.format(W[0],W[1],B))
+print('损失函数值为：', loss)
 
-
-#输出数据的三维可视化图
+#数据处理
 XA = date[:999,0]
 XB = date[:999,1]
 YB = date[:999,2]
 W1 = W[0]
 W2 = W[1]
-#预测数据
 
-ShowResult(XA, XB, YB, W1, W2, B)
+#三维可视化
+'ShowResult(XA, XB, YB, W1, W2, B)'
